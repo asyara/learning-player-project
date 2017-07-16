@@ -1,4 +1,6 @@
 package com.yellocode.player.repository;
 
-public interface PlaylistRepository {
+import com.yellocode.player.domain.Playlist;
+
+public interface PlaylistRepository extends BaseRepository<Playlist> {
 }

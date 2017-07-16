@@ -1,5 +1,7 @@
 package com.yellocode.player.repository;
 
-public interface UserRepository {
+import com.yellocode.player.domain.User;
+
+public interface UserRepository extends BaseRepository<User> {
 
 }

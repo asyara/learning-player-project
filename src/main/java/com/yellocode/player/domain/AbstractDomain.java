@@ -1,8 +1,13 @@
 package com.yellocode.player.domain;
 
+import javax.persistence.*;
+
+@MappedSuperclass
 public abstract class AbstractDomain {
 
-    protected long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Long id;
 
     public Long getId() {
         return id;

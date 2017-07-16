@@ -1,4 +1,6 @@
 package com.yellocode.player.repository;
 
-public interface ArtistRepository {
+import com.yellocode.player.domain.Artist;
+
+public interface ArtistRepository extends BaseRepository<Artist> {
 }
