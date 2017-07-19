@@ -42,7 +42,7 @@ public class TrackResource {
     public Track update(@PathVariable("id") Long id,
                         @RequestBody Track request) {
         Track track = repository.findOne(id);
-        track.setArtist(request.getArtist());
+        track.setTrackAuthor(request.getTrackAuthor());
         track.setTrackName(request.getTrackName());
         return repository.save(track);
     }

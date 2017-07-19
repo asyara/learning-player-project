@@ -10,7 +10,7 @@ public class Track extends AbstractDomain {
     @Column(name = "track_name", nullable = false, insertable = true, updatable = true, length = 255)
     private String trackName;
     @Column(name = "track_author", nullable = false, insertable = true, updatable = true, length = 255)
-    private String artist;
+    private String trackAuthor;
 
     public String getTrackName() {
         return trackName;
@@ -20,19 +20,19 @@ public class Track extends AbstractDomain {
         this.trackName = trackName;
     }
 
-    public String getArtist() {
-        return artist;
+    public String getTrackAuthor() {
+        return trackAuthor;
     }
 
-    public void setArtist(String artist) {
-        this.artist = artist;
+    public void setTrackAuthor(String trackAuthor) {
+        this.trackAuthor = trackAuthor;
     }
 
     @Override
     public String toString() {
         return "Track{" +
                 "trackName='" + trackName + '\'' +
-                ", artist='" + artist + '\'' +
+                ", trackAuthor='" + trackAuthor + '\'' +
                 '}';
     }
 }
