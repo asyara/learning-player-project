@@ -16,6 +16,13 @@ public class Playlist extends AbstractDomain {
     }, inverseJoinColumns = {@JoinColumn(name = "track_id", nullable = false, updatable = true)})
     private List<Track> tracks;
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "user_playlist", joinColumns = {
+            @JoinColumn(name = "playlist_id", nullable = false, updatable = true)
+    }, inverseJoinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = true)})
+    private List<Playlist> playlists;
+
+
     public String getPlaylistName() {
         return playlistName;
     }
@@ -30,6 +37,14 @@ public class Playlist extends AbstractDomain {
 
     public void setTracks(List<Track> tracks) {
         this.tracks = tracks;
+    }
+
+    public List<Playlist> getPlaylistsByUserId() {
+        return playlists;
+    }
+
+    public void setPlaylistsByUserId(List<Playlist> playlists) {
+        this.playlists = playlists;
     }
 
     @Override

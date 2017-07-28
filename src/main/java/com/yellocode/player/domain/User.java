@@ -20,6 +20,12 @@ public class User extends AbstractDomain {
     }, inverseJoinColumns = {@JoinColumn(name = "artist_id", nullable = false, updatable = true)})
     private List<Artist> artists;
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "user_playlist", joinColumns = {
+            @JoinColumn(name = "user_id", nullable = false, updatable = true)
+    }, inverseJoinColumns = {@JoinColumn(name = "playlist_id", nullable = false, updatable = true)})
+    private List<Playlist> playlists;
+
     public String getLogin() {
         return login;
     }
@@ -42,6 +48,14 @@ public class User extends AbstractDomain {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List <Artist> getArtistsByUserId() {
+        return artists;
+    }
+
+    public  List <Playlist> getPlaylistsByUserId() {
+    return playlists;
     }
 
     @Override

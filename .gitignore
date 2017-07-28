@@ -1,0 +1,11 @@
+.classpath
+.project
+.settings
+*.iml
+node_modules/
+**/bower_components/
+target/
+tmp/
+.idea/
+src/main/webapp/dist/
+src/main/webapp/index.html
