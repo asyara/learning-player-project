@@ -12,10 +12,10 @@ public class Artist extends AbstractDomain {
     private String groupName;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "user_artist", joinColumns = {
+    @JoinTable(name = "artist_track", joinColumns = {
             @JoinColumn(name = "artist_id", nullable = false, updatable = true)
-    }, inverseJoinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = true)})
-    private List<User> users;
+    }, inverseJoinColumns = {@JoinColumn(name = "track_id", nullable = false, updatable = true)})
+    private List<Track> tracks;
 
     public String getGroupName() {
         return groupName;
@@ -25,19 +25,13 @@ public class Artist extends AbstractDomain {
         this.groupName = groupName;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public List<Track> getTracks() {
+        return tracks;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setTracks(List<Track> tracks) {
+        this.tracks = tracks;
     }
 
-    @Override
-    public String toString() {
-        return "Artist{" +
-                "groupName='" + groupName + '\'' +
-                ", users=" + users +
-                '}';
-    }
+
 }

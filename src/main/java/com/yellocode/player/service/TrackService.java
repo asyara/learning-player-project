@@ -10,8 +10,9 @@ import java.util.List;
  */
 public interface TrackService {
 
-    Track addTrack(Track track);
+    Track add(Track track);
     void delete(long id);
-    Track editTrack(Track track);
-    List<Track> getAll();
+    Track edit(long id, Track track);
+    List<Track> getAll(int page, int size);
+    Track getById(long id);
 }

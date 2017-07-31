@@ -8,9 +8,10 @@ import java.util.List;
  */
 public interface PlaylistService {
 
-    Playlist addPlaylist(Playlist playlist);
+    Playlist add(Playlist playlist);
     void delete(long id);
-    Playlist editPlaylist(Playlist playlist);
-    List<Playlist> getAll();
+    Playlist edit(long id, Playlist request);
+    List<Playlist> getAll(int page, int size);
+    Playlist getById(long id);
 
 }

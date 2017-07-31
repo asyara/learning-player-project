@@ -1,4 +1,4 @@
-package com.yellocode.player.DTO;
+package com.yellocode.player.dto.user;
 
 import com.yellocode.player.domain.Artist;
 import com.yellocode.player.domain.Playlist;
@@ -7,12 +7,10 @@ import java.util.List;
 /**
  * Created by DmitryL on 23.07.2017.
  */
-public class UserDTO {
+public class CreateUserRequest {
 
     private String login;
-
     private String email;
-
     private String password;
 
     private List<Artist> artists;

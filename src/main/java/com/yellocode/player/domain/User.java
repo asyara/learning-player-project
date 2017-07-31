@@ -14,18 +14,6 @@ public class User extends AbstractDomain {
     @Column(name = "password", nullable = false, insertable = true, updatable = true, length = 255)
     private String password;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "user_artist", joinColumns = {
-            @JoinColumn(name = "user_id", nullable = false, updatable = true)
-    }, inverseJoinColumns = {@JoinColumn(name = "artist_id", nullable = false, updatable = true)})
-    private List<Artist> artists;
-
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "user_playlist", joinColumns = {
-            @JoinColumn(name = "user_id", nullable = false, updatable = true)
-    }, inverseJoinColumns = {@JoinColumn(name = "playlist_id", nullable = false, updatable = true)})
-    private List<Playlist> playlists;
-
     public String getLogin() {
         return login;
     }
@@ -50,21 +38,12 @@ public class User extends AbstractDomain {
         this.password = password;
     }
 
-    public List <Artist> getArtistsByUserId() {
-        return artists;
-    }
-
-    public  List <Playlist> getPlaylistsByUserId() {
-    return playlists;
-    }
-
     @Override
     public String toString() {
         return "User{" +
                 "login='" + login + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", artists=" + artists +
                 '}';
     }
 }

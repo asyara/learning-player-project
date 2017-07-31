@@ -1,4 +1,4 @@
-package com.yellocode.player.DTO;
+package com.yellocode.player.dto;
 
 /**
  * Created by DmitryL on 23.07.2017.

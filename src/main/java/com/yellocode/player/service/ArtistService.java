@@ -8,8 +8,8 @@ import java.util.List;
  */
 public interface ArtistService {
 
-    Artist addArtist(Artist artist);
+    Artist add(Artist artist);
     void delete(long id);
-    Artist editArtist(Artist artist);
+    Artist edit(Artist artist);
     List<Artist> getAll();
 }

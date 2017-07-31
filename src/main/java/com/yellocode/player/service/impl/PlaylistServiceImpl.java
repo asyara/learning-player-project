@@ -4,21 +4,25 @@ import com.yellocode.player.domain.Playlist;
 import com.yellocode.player.repository.PlaylistRepository;
 import com.yellocode.player.service.PlaylistService;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
  * Created by DmitryL on 19.07.2017.
  */
+@Transactional
 public class PlaylistServiceImpl implements PlaylistService {
 
     @Autowired
     private PlaylistRepository playlistRepository;
 
     @Override
-    public Playlist addPlaylist(Playlist playlist) {
-        Playlist savedPlaylist = playlistRepository.saveAndFlush(playlist);
-        return savedPlaylist;
+    public Playlist add(Playlist playlist) {
+        Playlist newPlaylist = new Playlist();
+        newPlaylist.setPlaylistName(playlist.getPlaylistName());
+        newPlaylist.setTracks(playlist.getTracks());
+        playlistRepository.saveAndFlush(newPlaylist);
+        return newPlaylist;
     }
 
     @Override
@@ -27,12 +31,20 @@ public class PlaylistServiceImpl implements PlaylistService {
     }
 
     @Override
-    public Playlist editPlaylist(Playlist playlist) {
-        return playlistRepository.saveAndFlush(playlist);
+    public Playlist edit(long id, Playlist request) {
+        Playlist editedPlaylist = playlistRepository.findOne(id);
+        editedPlaylist.setPlaylistName(request.getPlaylistName());
+        editedPlaylist.setTracks(request.getTracks());
+        return playlistRepository.saveAndFlush(request);
     }
 
     @Override
-    public List<Playlist> getAll() {
+    public List<Playlist> getAll(int page, int size) {
         return playlistRepository.findAll();
+    }
+
+    @Override
+    public Playlist getById(long id) {
+        return playlistRepository.findOne(id);
     }
 }

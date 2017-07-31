@@ -1,5 +1,7 @@
 package com.yellocode.player.service;
 
+import com.yellocode.player.dto.user.CreateUserRequest;
+import com.yellocode.player.dto.user.UserResponse;
 import com.yellocode.player.domain.User;
 
 import java.util.List;
@@ -9,9 +11,10 @@ import java.util.List;
  */
 public interface UserService {
 
-    User addUser(User user);
+    UserResponse add(CreateUserRequest user);
     void delete(long id);
-    User editUser(User user);
-    List<User> getAll();
+    User edit(long id, User user);
+    List<User> getAll(int page, int size);
+    User getById(long id);
 
 }

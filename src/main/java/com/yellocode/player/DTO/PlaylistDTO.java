@@ -1,4 +1,4 @@
-package com.yellocode.player.DTO;
+package com.yellocode.player.dto;
 
 import com.yellocode.player.domain.Playlist;
 import com.yellocode.player.domain.Track;

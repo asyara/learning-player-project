@@ -5,18 +5,20 @@ import com.yellocode.player.repository.ArtistRepository;
 import com.yellocode.player.service.ArtistService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
  * Created by DmitryL on 19.07.2017.
  */
+@Transactional
 public class ArtistServiceImpl implements ArtistService{
 
     @Autowired
     private ArtistRepository artistRepository;
 
     @Override
-    public Artist addArtist(Artist artist) {
+    public Artist add(Artist artist) {
         Artist savedArtist = artistRepository.saveAndFlush(artist);
         return savedArtist;
     }
@@ -27,7 +29,7 @@ public class ArtistServiceImpl implements ArtistService{
     }
 
     @Override
-    public Artist editArtist(Artist artist) {
+    public Artist edit(Artist artist) {
         return artistRepository.saveAndFlush(artist);
     }
 
